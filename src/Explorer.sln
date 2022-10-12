@@ -9,11 +9,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPF", "WPF", "{6944C7CE-23D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Explorer.WPF.UI", "WPF\Explorer.WPF.UI\Explorer.WPF.UI.csproj", "{64659673-F096-46EF-95AA-B395551E7779}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Explorer.Shared.ViewModels", "Core\Explorer.Shared.ViewModels\Explorer.Shared.ViewModels.csproj", "{0E6DDAE8-9E58-4414-BA20-E2E06AC5E1ED}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AvaloniaUI", "AvaloniaUI", "{D6F710B3-DD5D-4C7E-A067-930708DCBD31}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Explorer.Avalonia.UI", "AvaloniaUI\Explorer.Avalonia.UI\Explorer.Avalonia.UI.csproj", "{466FC39A-56EF-4084-9136-A4E2B8103DC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Explorer.Shared.ViewModels", "Core\Explorer.Shared.ViewModels\Explorer.Shared.ViewModels.csproj", "{E195934A-5826-4821-82C4-3E498DCB0F7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,22 +25,22 @@ Global
 		{64659673-F096-46EF-95AA-B395551E7779}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64659673-F096-46EF-95AA-B395551E7779}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64659673-F096-46EF-95AA-B395551E7779}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0E6DDAE8-9E58-4414-BA20-E2E06AC5E1ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0E6DDAE8-9E58-4414-BA20-E2E06AC5E1ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0E6DDAE8-9E58-4414-BA20-E2E06AC5E1ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0E6DDAE8-9E58-4414-BA20-E2E06AC5E1ED}.Release|Any CPU.Build.0 = Release|Any CPU
 		{466FC39A-56EF-4084-9136-A4E2B8103DC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{466FC39A-56EF-4084-9136-A4E2B8103DC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{466FC39A-56EF-4084-9136-A4E2B8103DC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{466FC39A-56EF-4084-9136-A4E2B8103DC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E195934A-5826-4821-82C4-3E498DCB0F7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E195934A-5826-4821-82C4-3E498DCB0F7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E195934A-5826-4821-82C4-3E498DCB0F7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E195934A-5826-4821-82C4-3E498DCB0F7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{64659673-F096-46EF-95AA-B395551E7779} = {6944C7CE-23D5-4D13-8B99-F2CD3296D33C}
-		{0E6DDAE8-9E58-4414-BA20-E2E06AC5E1ED} = {53C3191F-AF4D-44AA-A992-783152240652}
 		{466FC39A-56EF-4084-9136-A4E2B8103DC2} = {D6F710B3-DD5D-4C7E-A067-930708DCBD31}
+		{E195934A-5826-4821-82C4-3E498DCB0F7B} = {53C3191F-AF4D-44AA-A992-783152240652}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7728865D-08C8-4A2C-A65B-159403F14587}
