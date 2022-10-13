@@ -1,44 +1,51 @@
 ﻿using System.Collections.ObjectModel;
-using System.IO;
+using System.Collections.Specialized;
+using System.Linq;
 using System.Windows.Input;
 
 namespace Explorer.Shared.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
-        public string FilePath { get; set; }
-        public ICommand OpenCommand { get; }
-
-        public FileEntityViewModel SelectedFileEntity { get; set; }
-        public ObservableCollection<FileEntityViewModel> DirectoriesAndFiles { get; set; } = new();
+        public ObservableCollection<DirectoryTabItemViewModel> DirectoryTabItems { get; set; } = new();
+        public DirectoryTabItemViewModel CurentDirectoryTabItem { get; set; }
+        #region Commands
+        #endregion
         public MainViewModel()
         {
-            OpenCommand = new DelegateCommand(Open);
-            foreach (var logicalDrive in Directory.GetLogicalDrives())
-            {
-                DirectoriesAndFiles.Add(new DirectoryViewModel(logicalDrive));
-            }
+            DirectoryTabItems.CollectionChanged += OnDirectoryTabItemsAddNewElement;
+
+            DirectoryTabItems.Add(new());
+            DirectoryTabItems.Add(new());
+            DirectoryTabItems.Add(new());
+
+            CurentDirectoryTabItem = DirectoryTabItems.FirstOrDefault();
         }
-        private void Open(object parametr)
+
+        private void OnDirectoryTabItemsAddNewElement(object s, NotifyCollectionChangedEventArgs e)
         {
-            if(parametr is DirectoryViewModel directoryViewModel)
+            if (e.Action is System.Collections.Specialized.NotifyCollectionChangedAction.Add)
             {
-                FilePath = directoryViewModel.FullName;
-
-                DirectoriesAndFiles.Clear();
-
-                var directoryInfo = new DirectoryInfo(FilePath);
-
-                foreach (var directory in directoryInfo.GetDirectories())
+                foreach (var item in e.NewItems)
                 {
-                    DirectoriesAndFiles.Add(new DirectoryViewModel(directory));
-                }
-                foreach (var fileInfo in directoryInfo.GetFiles())
-                {
-                    DirectoriesAndFiles.Add(new FileViewModel(fileInfo));
+                    if (item is DirectoryTabItemViewModel tabItem)
+                    {
+                        tabItem.OnClosed += OnTabItemClosed;
+                    }
                 }
             }
         }
 
+        private void OnTabItemClosed(object sender, System.EventArgs e)
+        {
+            if(sender is DirectoryTabItemViewModel tabItem)
+            {
+                tabItem.OnClosed -= OnTabItemClosed;
+                DirectoryTabItems.Remove(tabItem);
+                if (tabItem == CurentDirectoryTabItem)
+                    CurentDirectoryTabItem = DirectoryTabItems.FirstOrDefault();
+            }
+            
+        }
     }
 }
